@@ -1,0 +1,52 @@
+.nickName{
+    text-align: left;
+    h2{
+        font-size: 4.4rem;
+        line-height: 1;
+        font-weight: bold;
+    }
+    p{
+        font-size: 4.4rem;
+        line-height: 1;
+        font-weight: bold;
+    }
+}
+.timeset{
+    margin-top: 6rem;
+}
+.date-wrap{
+    text-align: left;
+    > div{ 
+        font-size: 26px;
+        line-height: 38px;
+        font-weight: bold;
+    }
+    .year{
+        
+    }
+    .month{
+
+    }
+    .day{
+
+    }
+}
+
+.time-wrap{
+    font-weight: bold;
+    .time-box{
+        width: 7.5rem;
+        height: 7.5rem;
+        background: #fff;
+        font-size: 30px;
+        line-height: 7.5rem;
+        text-align: center;
+        border: 1px solid #f2f2f2;
+        border-radius: 0.6rem;
+        box-shadow: 3px 3px 4px rgba(0,0,0,0.25);
+    }
+    .semicolon{
+        font-size: 4.5rem;
+        
+    }
+}

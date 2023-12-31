@@ -1,3 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1rem;
+}
+ul,
+li {
+  list-style: none;
+}
+
 .App {
   text-align: center;
 }
@@ -34,5 +49,18 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.contnents {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 850px;
+
+  .left,
+  .right {
+    height: 100%;
   }
 }

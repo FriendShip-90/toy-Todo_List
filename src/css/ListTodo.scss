@@ -1,0 +1,131 @@
+.list-box {
+  margin-top: 70px;
+  //   기본
+  .item {
+    ul {
+      height: 580px;
+      overflow-y: scroll;
+      padding: 0 20px 0 0;
+      li {
+        padding: 17px 20px 0;
+        background: #fff;
+        border-radius: 7px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+        margin-bottom: 24px;
+        .round {
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          background-color: #12a973;
+          border-radius: 100%;
+        }
+        .top {
+          padding-bottom: 17px;
+          .title {
+            width: 212px;
+            font-size: 18px;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+          }
+          .date {
+            font-size: 14px;
+            color: #666;
+          }
+          .editInput {
+            position: relative;
+            left: 20px;
+            outline: 0;
+            width: 100%;
+            height: 27px;
+            font-size: 18px;
+            border: unset;
+            border-bottom: 1px solid #000;
+            box-shadow: unset;
+          }
+        }
+        .bottom {
+          padding-bottom: 0;
+          margin-top: 0;
+          height: 0;
+          transform: scaleY(0);
+          transition: all 0.3s;
+          .box {
+            width: 138px;
+            height: 0;
+            > div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 36px;
+              height: 34px;
+              background: #fff;
+              border: 1px solid #e2e2e2;
+              border-radius: 7px;
+              box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+              transform: scaleY(0);
+              &:hover {
+                background: #e6e6e6;
+                transition: all 0.3s;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        &:hover {
+          .top {
+            border-bottom: 1px solid #bbb;
+            transition: all 0.3s;
+          }
+          .bottom {
+            display: flex;
+            margin-top: 16px;
+            padding-bottom: 17px;
+            height: fit-content;
+            transform: scaleY(1);
+            transition: all 0.3s;
+            .box {
+              height: fit-content;
+              transition: all 0.3s;
+              > div {
+                transform: scaleY(1);
+              }
+            }
+          }
+        }
+      }
+    }
+    // 완료
+    &.done {
+      ul {
+        li {
+          background: #eaf0e7;
+          .top {
+            .round {
+              background: #fff;
+            }
+            .title {
+              color: #bbb;
+              text-decoration: line-through;
+            }
+            .date {
+              opacity: 0;
+            }
+          }
+          .bottom {
+            .box {
+              > div {
+                background: #eaf0e7;
+                border: 1px solid #fff;
+                &:hover {
+                  background: #d2eec4;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

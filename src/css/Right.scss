@@ -1,0 +1,46 @@
+.section-R {
+  //   padding-left: 60px;
+  .conbox {
+    padding: 40px 90px;
+    height: 851px;
+    background-color: #eaf6f3;
+    border-radius: 25px;
+  }
+  .todoList {
+    h2 {
+      font-size: 38px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .input-group {
+    position: relative;
+    width: 54rem;
+    margin: 0 auto;
+    label {
+      position: relative;
+      width: 100%;
+      input {
+        width: 100%;
+        max-width: 53rem;
+        display: inline-block;
+        height: 46px;
+        color: #666;
+        border-radius: 2.1rem;
+        border: 1px solid #000;
+        padding: 0 24px;
+
+        font-size: 16px;
+        font-weight: bold;
+        outline: none;
+        box-shadow: none;
+      }
+      svg {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
