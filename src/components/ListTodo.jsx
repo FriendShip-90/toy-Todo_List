@@ -1,47 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import "../css/ListTodo.scss";
 import { Row, Col } from "react-bootstrap";
 
-const ListTodo = ({
-  list,
-  onRemove,
-  onToggle,
-  onUpdate,
-  onChangeSelectedTodo,
-  selectedTodo,
-  setValue,
-  addInput,
-}) => {
-  useEffect(() => {
-    if (selectedTodo) {
-      setValue(list.text);
-    }
-  }, []);
-
+const ListTodo = ({ todos, onRemove, onCheckToggle, onChangeSelectedTodo }) => {
   return (
     <section className="list-box">
       <Row>
         <Col xs={6} className="work item">
           <ul>
-            {list.map((item) => {
-              const { id, text, checked } = item;
+            {todos.map((item) => {
+              const { id, text, checked, timeSet } = item;
               if (!checked) {
                 return (
                   <li
                     className="d-flex align-items-center justify-content-between w-100 mb-6"
-                    key={id}
+                    key={`${id}${text}`}
                   >
                     <div className="box w-100">
                       <div className="top">
                         <div className="d-flex align-items-center justify-content-between">
                           <div className="d-flex align-items-center justify-content-start position-relative w-75">
                             <span className="round"></span>
-                            {addInput}
                             <div className="title ms-3">{text}</div>
                           </div>
                           <div className="date">
-                            <span>10</span>분 전
+                            {/* 입력을 한 시간과 지금 시간의 차이를 계산해서 올림/ */}
+                            <span>{timeSet}</span>
                           </div>
                         </div>
                       </div>
@@ -51,7 +36,6 @@ const ListTodo = ({
                             className="edit"
                             onClick={() => {
                               onChangeSelectedTodo(item);
-                              onUpdate(id, text);
                             }}
                           >
                             <svg
@@ -71,7 +55,7 @@ const ListTodo = ({
                           </div>
                           <div
                             className="complete mx-4"
-                            onClick={() => onToggle(id)}
+                            onClick={() => onCheckToggle(id)}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -108,13 +92,13 @@ const ListTodo = ({
         {/* 완료된 목록 */}
         <Col xs={6} className="done item">
           <ul>
-            {list.map((item) => {
-              const { text, id, checked } = item;
+            {todos.map((item) => {
+              const { text, id, checked, timeSet } = item;
               if (checked) {
                 return (
                   <li
                     className="d-flex align-items-center justify-content-between w-100"
-                    key={id}
+                    key={`${id}${text}`}
                   >
                     <div className="box w-100">
                       <div className="top">
@@ -124,7 +108,7 @@ const ListTodo = ({
                             <div className="title ms-3">{text}</div>
                           </div>
                           <div className="date">
-                            <span>10</span>분 전
+                            <span>{timeSet}</span>
                           </div>
                         </div>
                       </div>
@@ -132,7 +116,7 @@ const ListTodo = ({
                         <div className="box d-flex justify-content-between mx-auto">
                           <div
                             className="complete"
-                            onClick={() => onToggle(id)}
+                            onClick={() => onCheckToggle(id)}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
